@@ -1,19 +1,15 @@
-import { useReducer } from "react";
+import { useContext } from "react";
 import useInput from "../hooks/useInput";
-import { useTodos } from "../hooks/useTodos";
+import { TodoDispatchContext } from "../context/TodoContext";
 
 const TodoForm = () => {
     const [title, onChangeHandler] = useInput();
-    const { todos, addTodo } = useTodos();
+    const { addTodoR } = useContext(TodoDispatchContext);
 
-    const onClickaddTodoHandler = (text) => {
-        addTodo(text);
-    };
     return (
         <div>
             <input value={title} onChange={(e) => onChangeHandler(e)} />
-            <button onClick={() => onClickaddTodoHandler(title)}>Todo추가</button>
-            {/* <button onClick={() => onClickdis(title)}>Todo추가2</button> */}
+            <button onClick={() => addTodoR(title)}>Todo추가2</button>
         </div>
     );
 };
