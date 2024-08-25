@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { useTodos } from "../hooks/useTodos";
+import { TodoDispatchContext } from "../context/TodoContext";
+import { useContext } from "react";
 
 const TodoItem = ({ todo }) => {
-    const { toggleTodo, deleteTodo } = useTodos();
-
+    const { deleteTodoR, toggleTodoR } = useContext(TodoDispatchContext);
     return (
         <TodoItemWrap>
-            <TodoTitle $completed={todo.completed} onClick={() => toggleTodo(todo.id)}>
+            <TodoTitle $completed={todo.completed} onClick={() => toggleTodoR(todo.id)}>
                 {todo.text}
             </TodoTitle>
-            <button onClick={() => deleteTodo(todo.id)}>삭제</button>
+            <button onClick={() => deleteTodoR(todo.id)}>삭제</button>
         </TodoItemWrap>
     );
 };
