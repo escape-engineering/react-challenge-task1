@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { useTodos } from "../hooks/useTodos";
 import { TodoDispatchContext } from "../context/TodoContext";
-import { useContext } from "react";
 
 const TodoItem = ({ todo }) => {
-    const { deleteTodoR, toggleTodoR } = useContext(TodoDispatchContext);
+    const { deleteTodoR, toggleTodoR } = useTodos(TodoDispatchContext);
     return (
         <TodoItemWrap>
             <TodoTitle $completed={todo.completed} onClick={() => toggleTodoR(todo.id)}>

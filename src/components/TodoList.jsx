@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
-import { useContext } from "react";
 import { TodoDispatchContext } from "../context/TodoContext";
+import { useTodos } from "../hooks/useTodos";
 
 const TodoList = () => {
-    const { todosR } = useContext(TodoDispatchContext);
+    const { todosR } = useTodos(TodoDispatchContext);
     return (
         <TodoWrapper>
             {todosR.map((todo) => {
