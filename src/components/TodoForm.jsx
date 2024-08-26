@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import useInput from "../hooks/useInput";
 import { TodoDispatchContext } from "../context/TodoContext";
+import { useTodos } from "../hooks/useTodos";
 
 const TodoForm = () => {
     const [title, onChangeHandler] = useInput();
-    const { addTodoR } = useContext(TodoDispatchContext);
+    const { addTodoR } = useTodos(TodoDispatchContext);
 
     return (
         <div>
